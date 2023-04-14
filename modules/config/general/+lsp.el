@@ -1,6 +1,15 @@
 ;;; +lsp.el -*- lexical-binding: t; -*-
 
 ;;;###if (modulep! lsp)
+
+(after! lsp-mode
+  (setq-default lsp-lens-enable nil)
+  (setq-default lsp-ui-doc-show-with-cursor t))
+
+(after! company
+  (map! :gei "M-i" #'company-complete-common)
+  (setq-default company-minimum-prefix-length 1))
+
 ;;;###autoload
 (defun lsp-load-vscode-workspace-no-remove (file)
   "Load vscode workspace from FILE."

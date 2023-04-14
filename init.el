@@ -52,6 +52,7 @@
        ;workspaces        ; tab emulation, persistence & separate workspaces
        ;zen               ; distraction-free coding or writing
        fill-column
+       better-buffers
 
        :editor
        (evil +everywhere); come to the dark side, we have cookies
@@ -110,6 +111,7 @@
        ;;upload            ; map local to remote projects via ssh/ftp
        undo-tree
        ;;perforce
+       clang-format
 
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
@@ -195,4 +197,6 @@
 
        :config
        ;;literate
-       (default +bindings +smartparens))
+       (default +bindings +smartparens)
+       (c-style)
+       (general +lsp +bindings))

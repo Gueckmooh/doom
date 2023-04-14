@@ -97,7 +97,8 @@
 (map! :ge "M-n" #'forward-paragraph)
 
 ;; Delete the selection when inserting text
-(delete-selection-mode)
+(add-hook 'evil-emacs-state-entry-hook #'delete-selection-mode)
+(add-hook 'evil-emacs-state-exit-hook  #'+default-disable-delete-selection-mode-h)
 
 ;; Run keyboard macro
 (map! :ge "C-x C-k c" #'kmacro-call-macro)
@@ -131,5 +132,8 @@
       (progn (setq-default projectile-indexing-method 'alien)
              (setq-default projectile-generic-command "fd.sh"))))
 
-(load! "+lsp")
-(load! "+bindings")
+;; Draw block cursor as wide as the glyph under it
+(setq-default x-stretch-cursor t)
+
+;; Show unncessary whitespace that can mess up your diff
+(setq-default show-trailing-whitespace 1)
