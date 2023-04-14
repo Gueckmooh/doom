@@ -76,16 +76,15 @@
 ;; they are implemented.
 
 ;; Make C-h be backspace in emacs mode
-(define-key key-translation-map [?\C-h] [?\C-?])
+(global-set-key (kbd "C-h") #'backward-delete-char-untabify)
 (map! :e "<f1>" #'help-command)
 
 ;; Show kill ring in evil mode
 (map! :leader :desc "Show helm kill ring" :n "M-y" #'helm-show-kill-ring)
 
-
-
 ;; When killing an end of line, remove the leading exceeding spaces of the next
 ;; line
+(setq-default kill-whole-line t)
 (defadvice kill-line (before check-position activate)
   (if (derived-mode-p 'prog-mode)
       (if (and (eolp) (not (bolp)))
@@ -94,5 +93,32 @@
                  (backward-char 1)))))
 
 ;; Moving the cursor by paragraph
-(map! :e "M-p" #'backward-paragraph)
-(map! :e "M-n" #'forward-paragraph)
+(map! :ge "M-p" #'backward-paragraph)
+(map! :ge "M-n" #'forward-paragraph)
+
+;; Delete the selection when inserting text
+(delete-selection-mode)
+
+;; Run keyboard macro
+(map! :ge "C-x C-k c" #'kmacro-call-macro)
+
+(global-set-key (kbd "C-x !") 'next-error)
+
+;; =============================================================================
+;; Diff and merge
+;; =============================================================================
+;; ediff both A and B to C
+;;;###autoload
+(defun ediff-copy-both-to-C ()
+  "Take both ediff changes to C buffer."
+  (interactive)
+  (ediff-copy-diff
+   ediff-current-difference nil 'C nil
+   (concat
+    (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
+    (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer)
+    )))
+;;;###autoload
+(defun add-d-to-ediff-mode-map ()
+  (define-key ediff-mode-map "d" 'ediff-copy-both-to-C))
+(add-hook 'ediff-keymap-setup-hook #'add-d-to-ediff-mode-map)

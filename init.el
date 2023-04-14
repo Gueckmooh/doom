@@ -49,8 +49,9 @@
        (vc-gutter +pretty) ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
-       workspaces        ; tab emulation, persistence & separate workspaces
-       ;;zen               ; distraction-free coding or writing
+       ;workspaces        ; tab emulation, persistence & separate workspaces
+       ;zen               ; distraction-free coding or writing
+       fill-column
 
        :editor
        (evil +everywhere); come to the dark side, we have cookies
@@ -108,6 +109,7 @@
        ;;tree-sitter       ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
        undo-tree
+       perforce
 
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
