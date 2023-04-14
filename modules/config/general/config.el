@@ -5,3 +5,6 @@
 
 (when (modulep! +bindings)
   (load! "+bindings"))
+
+(when (modulep! +hl-todo)
+  (load! "+hl-todo"))

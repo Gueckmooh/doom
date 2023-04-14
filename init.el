@@ -200,4 +200,4 @@
        ;;literate
        (default +bindings +smartparens)
        (c-style)
-       (general +lsp +bindings))
+       (general +lsp +bindings +hl-todo))
