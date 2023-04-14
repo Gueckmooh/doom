@@ -123,20 +123,6 @@
   (define-key ediff-mode-map "d" 'ediff-copy-both-to-C))
 (add-hook 'ediff-keymap-setup-hook #'add-d-to-ediff-mode-map)
 
-(when (modulep! :tools lsp)
-;;;###autoload
-(defun lsp-load-vscode-workspace-no-remove (file)
-  "Load vscode workspace from FILE."
-  (interactive "fSelect file to import: ")
-  (require 'lsp)
-  (let ((dir (f-dirname file)))
-    (->> file
-         (json-read-file)
-         (alist-get 'folders)
-         (-map (-lambda ((&alist 'path))
-                 (lsp-workspace-folders-add (expand-file-name path dir)))))))
-)
-
 (when (modulep! :tools magit)
   (map! :after magit :ge "C-c g" #'magit-status))
 
@@ -144,3 +130,6 @@
   (if (executable-find "fd.sh")
       (progn (setq-default projectile-indexing-method 'alien)
              (setq-default projectile-generic-command "fd.sh"))))
+
+(load! "+lsp")
+(load! "+bindings")
