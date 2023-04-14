@@ -112,6 +112,7 @@
        undo-tree
        ;;perforce
        clang-format
+       meson
 
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
