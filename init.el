@@ -183,6 +183,7 @@
        ;;zig               ; C, but simpler
        souffle
        renpy
+       bison
 
        :email
        ;;(mu4e +org +gmail)
@@ -202,4 +203,4 @@
        (default +bindings +smartparens)
        (c-style)
        (general +lsp +bindings +hl-todo)
-       (lang +c))
+       (lang +cc))
