@@ -201,6 +201,10 @@
        :config
        ;;literate
        (default +bindings +smartparens)
-       (c-style)
+
+       ;;;; Personnal configuration
+       c-style
        (general +lsp +bindings +hl-todo)
-       (lang +cc))
+       (lang +cc)
+
+       )
