@@ -21,3 +21,6 @@
          (alist-get 'folders)
          (-map (-lambda ((&alist 'path))
                  (lsp-workspace-folders-add (expand-file-name path dir)))))))
+
+(after! flycheck
+  (map! :leader "!" flycheck-command-map))
