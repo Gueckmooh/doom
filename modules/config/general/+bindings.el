@@ -7,7 +7,9 @@
      :desc "Mark sexp" "a" #'mark-sexp
      (:prefix-map ("r" . "replace")
       :desc "Query replace" "r" #'anzu-query-replace
-      :desc "Query replace regexp" "R" #'anzu-query-replace-regexp))
+      :desc "Query replace regexp" "R" #'anzu-query-replace-regexp)
+     (:when (modulep! :completion helm)
+      :desc "Jump to mark" "s M" #'helm-mark-ring))
 
 (after! ivy
   (map! :map ivy-minibuffer-map
