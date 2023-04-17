@@ -136,4 +136,6 @@
 (setq-default x-stretch-cursor t)
 
 ;; Show unncessary whitespace that can mess up your diff
-(setq-default show-trailing-whitespace 1)
+(add-hook! 'prog-mode-hook
+  (lambda ()
+    (setq-default show-trailing-whitespace 1)))
