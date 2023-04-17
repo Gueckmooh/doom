@@ -8,3 +8,9 @@
      (:prefix-map ("r" . "replace")
       :desc "Query replace" "r" #'anzu-query-replace
       :desc "Query replace regexp" "R" #'anzu-query-replace-regexp))
+
+(after! ivy
+  (map! :map ivy-minibuffer-map
+        "C-j" #'ivy-next-line
+        "C-k" #'ivy-previous-line
+        "<escape>" #'abort-recursive-edit))
