@@ -1,4 +1,4 @@
-;;; tools/perforce/config.el -*- lexical-binding: t; -*-
+;;; tools/perforce/config.el -*- ledical-binding: t; -*-
 
 (use-package! p4
   :commands
@@ -10,11 +10,12 @@
    p4-ediff
    p4-change))
 
-(map! :leader "C-p o" #'p4-opened
-      :leader "C-p a" #'p4-add
-      :leader "C-p r" #'p4-revert
-      :leader "C-p e" #'p4-edit
-      :leader "C-p =" #'p4-diff)
+(map! :leader
+      :desc "p4 opened" "C-p o" #'p4-opened
+      :desc "p4 add file" "C-p a" #'p4-add
+      :desc "p4 revert file" "C-p r" #'p4-revert
+      :desc "p4 edit file" "C-p e" #'p4-edit
+      :desc "p4 diff" "C-p =" #'p4-diff)
 
 (undefine-key! "C-x p")
 

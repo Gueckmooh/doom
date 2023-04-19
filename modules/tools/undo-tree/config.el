@@ -5,4 +5,4 @@
   (setq-default undo-tree-history-directory-alist '(("." . "~/.config/emacs/undo")))
   (global-undo-tree-mode t))
 
-(map! :n "u" #'undo-tree-visualize)
+(map! :leader "y" #'undo-tree-visualize)

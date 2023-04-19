@@ -75,12 +75,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Make C-h be backspace in emacs mode
-(global-set-key (kbd "C-h") #'backward-delete-char-untabify)
-(map! :e "<f1>" #'help-command)
-
-;; Show kill ring in evil mode
-(map! :leader :desc "Show helm kill ring" :n "M-y" #'helm-show-kill-ring)
 
 ;; When killing an end of line, remove the leading exceeding spaces of the next
 ;; line
@@ -92,18 +86,12 @@
                  (just-one-space 0)
                  (backward-char 1)))))
 
-;; Moving the cursor by paragraph
-(map! :ge "M-p" #'backward-paragraph)
-(map! :ge "M-n" #'forward-paragraph)
 
 ;; Delete the selection when inserting text
 (add-hook 'evil-emacs-state-entry-hook #'delete-selection-mode)
 (add-hook 'evil-emacs-state-exit-hook  #'+default-disable-delete-selection-mode-h)
 
 ;; Run keyboard macro
-(map! :ge "C-x C-k c" #'kmacro-call-macro)
-
-(global-set-key (kbd "C-x !") 'next-error)
 
 ;; =============================================================================
 ;; Diff and merge
@@ -124,8 +112,6 @@
   (define-key ediff-mode-map "d" 'ediff-copy-both-to-C))
 (add-hook 'ediff-keymap-setup-hook #'add-d-to-ediff-mode-map)
 
-(when (modulep! :tools magit)
-  (map! :after magit :ge "C-c g" #'magit-status))
 
 (after! projectile
   (if (executable-find "fd.sh")
