@@ -125,3 +125,5 @@
 (add-hook! 'prog-mode-hook
   (lambda ()
     (setq-default show-trailing-whitespace 1)))
+
+(setq-default doom-modeline-buffer-file-name-style 'truncate-with-project)
