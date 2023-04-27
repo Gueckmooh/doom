@@ -21,6 +21,16 @@
       (:when (modulep! :completion helm)
        :desc "Jump to mark" "s M" #'helm-mark-ring))
 
+(map! :i
+      "C-d" #'delete-char
+      "C-h" #'backward-delete-char-untabify)
+
+;; Deactivate C-h opening the documentation when company is active so that I can
+;; errase things
+(map! :map company-active-map
+      "C-h" nil
+      "C-d" nil)
+
 (after! projectile
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
