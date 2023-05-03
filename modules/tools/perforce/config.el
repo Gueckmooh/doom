@@ -1,4 +1,4 @@
-;;; tools/perforce/config.el -*- ledical-binding: t; -*-
+;;; tools/perforce/config.el -*- lexical-binding: t; -*-
 
 (use-package! p4
   :commands
@@ -10,12 +10,12 @@
    p4-ediff
    p4-change))
 
-(map! :leader
-      :desc "p4 opened" "C-p o" #'p4-opened
-      :desc "p4 add file" "C-p a" #'p4-add
-      :desc "p4 revert file" "C-p r" #'p4-revert
-      :desc "p4 edit file" "C-p e" #'p4-edit
-      :desc "p4 diff" "C-p =" #'p4-diff)
+(map! :localleader
+      :desc "p4 opened" "p o" #'p4-opened
+      :desc "p4 add file" "p a" #'p4-add
+      :desc "p4 revert file" "p r" #'p4-revert
+      :desc "p4 edit file" "p e" #'p4-edit
+      :desc "p4 diff" "p =" #'p4-diff)
 
 (undefine-key! "C-x p")
 
@@ -24,3 +24,6 @@
       "C-x p r" #'p4-revert
       "C-x p e" #'p4-edit
       "C-x p =" #'p4-diff)
+
+(add-to-list 'command-switch-alist '("-p4diff" . command-line-p4diff))
+(add-to-list 'command-switch-alist '("-p4merge" . command-line-p4merge))
