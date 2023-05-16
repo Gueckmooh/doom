@@ -127,6 +127,8 @@
     (setq-default show-trailing-whitespace 1)))
 
 (map! :leader "U" #'undo-tree-visualize)
-(setq undo-tree-visualizer-diff nil)
+(map! :n "U" #'undo-tree-visualize)
+(after! undo-tree
+  (setq-default undo-tree-visualizer-diff nil))
 
 (setq-default doom-modeline-buffer-file-name-style 'truncate-with-project)
