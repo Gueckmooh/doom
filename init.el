@@ -14,6 +14,8 @@
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
+(load! "~/.config/mathworks/doom/config")
+
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
        ;;chinese
@@ -67,12 +69,13 @@
        ;;rotate-text       ; cycle region at point between text candidates
        snippets          ; my elves. They type so I don't have to
        ;;word-wrap         ; soft wrapping with language-aware indent
+       clang-format
 
        :emacs
        dired             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        ;;ibuffer         ; interactive buffer management
-       ;;undo              ; persistent, smarter undo for your inevitable mistakes
+       (undo +tree)      ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
@@ -109,8 +112,8 @@
        ;;tmux              ; an API for interacting with tmux
        ;;tree-sitter       ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
-       undo-tree
-       ;;perforce
+       ;;undo-tree
+       perforce
        meson
        doxygen
 
@@ -206,5 +209,13 @@
        c-style
        (general +lsp +bindings +hl-todo)
        (lang +cc)
+
+       :mathworks
+       runtest
+       (btv +runtest)
+       sandbox-compile
+       (default +snippets)
+       psreplay
+       ;; config
 
        )
