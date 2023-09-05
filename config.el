@@ -132,3 +132,9 @@
   (setq-default undo-tree-visualizer-diff nil))
 
 (setq-default doom-modeline-buffer-file-name-style 'truncate-with-project)
+
+(after! projectile
+        (add-to-list 'projectile-other-file-alist '("cpp" . ("h" "hpp" "ipp" "inl")))
+        (add-to-list 'projectile-other-file-alist '("hpp" . ("h" "ipp" "cpp" "cc" "inl")))
+        (add-to-list 'projectile-other-file-alist '("inl" . ("h" "hpp" "cpp")))
+)
