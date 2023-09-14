@@ -135,14 +135,8 @@
 
 (add-hook! prog-mode #'visual-line-mode)
 
-
-;; (after! lsp-clangd
-;;   (setq lsp-clients-clangd-args
-;;         '("-j=3"
-;;           "--background-index"
-;;           "--clang-tidy"
-;;           "--completion-style=detailed"
-;;           "--header-insertion=never"
-;;           "--header-insertion-decorators=0"))
-;;   (set-lsp-priority! 'clangd 2)
-;;   (setq lsp-clangd-binary-path "/usr/bin/clangd-13"))
+(after! projectile
+        (add-to-list 'projectile-other-file-alist '("cpp" . ("h" "hpp" "ipp" "inl")))
+        (add-to-list 'projectile-other-file-alist '("hpp" . ("h" "ipp" "cpp" "cc" "inl")))
+        (add-to-list 'projectile-other-file-alist '("inl" . ("h" "hpp" "cpp")))
+)
