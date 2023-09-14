@@ -17,7 +17,8 @@
       :desc "Show helm kill ring" "y" #'helm-show-kill-ring
       (:prefix-map ("r" . "replace")
        :desc "Query replace" "r" #'anzu-query-replace
-       :desc "Query replace regexp" "R" #'anzu-query-replace-regexp)
+       :desc "Query replace regexp" "R" #'anzu-query-replace-regexp
+       :desc "Query replace at point" "t" #'anzu-query-replace-at-cursor)
       (:when (modulep! :completion helm)
        :desc "Jump to mark" "s M" #'helm-mark-ring))
 

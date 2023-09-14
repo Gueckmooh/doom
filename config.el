@@ -132,3 +132,17 @@
   (setq-default undo-tree-visualizer-diff nil))
 
 (setq-default doom-modeline-buffer-file-name-style 'truncate-with-project)
+
+(add-hook! prog-mode #'visual-line-mode)
+
+
+;; (after! lsp-clangd
+;;   (setq lsp-clients-clangd-args
+;;         '("-j=3"
+;;           "--background-index"
+;;           "--clang-tidy"
+;;           "--completion-style=detailed"
+;;           "--header-insertion=never"
+;;           "--header-insertion-decorators=0"))
+;;   (set-lsp-priority! 'clangd 2)
+;;   (setq lsp-clangd-binary-path "/usr/bin/clangd-13"))
