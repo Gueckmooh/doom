@@ -1,4 +1,19 @@
-;;; config/c-style/autoload.el -*- lexical-binding: t; -*-
+;;; $DOOMDIR/lang/cc-config.el -*- lexical-binding: t; -*-
+;;;###if (modulep! :lang cc)
+
+
+
+;; =============================================================================
+;; Files extensions
+;; =============================================================================
+(add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.inl\\'" . c++-mode))
+
+(after! projectile
+        (add-to-list 'projectile-other-file-alist '("cpp" . ("h" "hpp" "ipp" "inl")))
+        (add-to-list 'projectile-other-file-alist '("hpp" . ("h" "ipp" "cpp" "cc" "inl")))
+        (add-to-list 'projectile-other-file-alist '("inl" . ("h" "hpp" "cpp"))))
+
 
 ;; =============================================================================
 ;; Style configuration
@@ -90,3 +105,6 @@
   (interactive)
   (define-my-c-style)
   (c-set-style "my-c-style"))
+
+(add-hook 'c-mode-hook #'set-my-c-style)
+(add-hook 'c++-mode-hook #'set-my-c-style)

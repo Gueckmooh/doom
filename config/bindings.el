@@ -1,4 +1,4 @@
-;;; +bindings.el -*- lexical-binding: t; -*-
+;;; $DOOMDIR/config/bindings.el -*- lexical-binding: t; -*-
 
 ;; Make C-h be backspace in emacs mode
 (global-set-key (kbd "C-h") #'backward-delete-char-untabify)

@@ -1,5 +1,4 @@
-;;; +lsp.el -*- lexical-binding: t; -*-
-
+;;; $DOOMDIR/config/lsp.el -*- lexical-binding: t; -*-
 ;;;###if (modulep! lsp)
 
 (after! lsp-mode

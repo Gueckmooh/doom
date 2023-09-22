@@ -91,8 +91,6 @@
 (add-hook 'evil-emacs-state-entry-hook #'delete-selection-mode)
 (add-hook 'evil-emacs-state-exit-hook  #'+default-disable-delete-selection-mode-h)
 
-;; Run keyboard macro
-
 ;; =============================================================================
 ;; Diff and merge
 ;; =============================================================================
@@ -107,11 +105,11 @@
     (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
     (ediff-get-region-contents ediff-current-difference 'B ediff-control-buffer)
     )))
+
 ;;;###autoload
 (defun add-d-to-ediff-mode-map ()
   (define-key ediff-mode-map "d" 'ediff-copy-both-to-C))
 (add-hook 'ediff-keymap-setup-hook #'add-d-to-ediff-mode-map)
-
 
 (after! projectile
   (if (executable-find "fd.sh")
@@ -126,17 +124,15 @@
   (lambda ()
     (setq-default show-trailing-whitespace 1)))
 
-(map! :leader "U" #'undo-tree-visualize)
-(map! :n "U" #'undo-tree-visualize)
-(after! undo-tree
-  (setq-default undo-tree-visualizer-diff nil))
 
 (setq-default doom-modeline-buffer-file-name-style 'truncate-with-project)
 
 (add-hook! prog-mode #'visual-line-mode)
+(cond
+ ((modulep! :lang cc) (load! "lang/cc"))
+ ((modulep! :tools lsp) (load! "config/lsp"))
+ ((modulep! :ui hl-todo) (load! "config/hl-todo"))
+ ((modulep! :emacs undo +tree) (load! "config/undo"))
+ )
 
-(after! projectile
-        (add-to-list 'projectile-other-file-alist '("cpp" . ("h" "hpp" "ipp" "inl")))
-        (add-to-list 'projectile-other-file-alist '("hpp" . ("h" "ipp" "cpp" "cc" "inl")))
-        (add-to-list 'projectile-other-file-alist '("inl" . ("h" "hpp" "cpp")))
-)
+(load! "config/bindings")

@@ -1,4 +1,4 @@
-;;; config/general/+hl-todo.el -*- lexical-binding: t; -*-
+;;; $DOOMDIR/config/hl-todo.el -*- lexical-binding: t; -*-
 
 (after! hl-todo
   (defcustom +hl-todo-highlight-pre-punctuation ""

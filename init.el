@@ -14,8 +14,6 @@
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
-(load! "~/.config/mathworks/doom/config")
-
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
        ;;chinese
@@ -60,7 +58,7 @@
        (evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
-       ;; (format +onsave)  ; automated prettiness
+       format            ; automated prettiness
        ;;god               ; run Emacs commands without modifier keys
        ;;lispy             ; vim for lisp, for people who don't like vim
        multiple-cursors  ; editing in many places at once
@@ -69,7 +67,6 @@
        ;;rotate-text       ; cycle region at point between text candidates
        snippets          ; my elves. They type so I don't have to
        ;;word-wrap         ; soft wrapping with language-aware indent
-       ;; clang-format
 
        :emacs
        dired             ; making dired pretty [functional]
@@ -109,8 +106,8 @@
        ;;rgb               ; creating color strings
        ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
-       ;;tmux              ; an API for interacting with tmux
-       ;;tree-sitter       ; syntax and parsing, sitting in a tree...
+       tmux              ; an API for interacting with tmux
+       tree-sitter       ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
        ;;undo-tree
        perforce
@@ -166,7 +163,7 @@
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       python            ; beautiful is better than ugly
+       (python +lsp +tree-sitter)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
@@ -182,7 +179,7 @@
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
-       ;;yaml              ; JSON, but readable
+       yaml                ; JSON, but readable
        ;;zig               ; C, but simpler
        souffle
        renpy
@@ -204,18 +201,4 @@
        :config
        ;;literate
        (default +bindings +smartparens)
-
-       ;;;; Personnal configuration
-       c-style
-       (general +lsp +bindings +hl-todo)
-       (lang +cc)
-
-       :mathworks
-       runtest
-       (btv +runtest)
-       sandbox-compile
-       (default +snippets)
-       psreplay
-       ;; config
-
        )
