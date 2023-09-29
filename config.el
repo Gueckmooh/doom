@@ -128,11 +128,9 @@
 (setq-default doom-modeline-buffer-file-name-style 'truncate-with-project)
 
 (add-hook! prog-mode #'visual-line-mode)
-(cond
- ((modulep! :lang cc) (load! "lang/cc"))
- ((modulep! :tools lsp) (load! "config/lsp"))
- ((modulep! :ui hl-todo) (load! "config/hl-todo"))
- ((modulep! :emacs undo +tree) (load! "config/undo"))
- )
+(when (modulep! :lang cc) (load! "lang/cc"))
+(when (modulep! :tools lsp) (load! "config/lsp"))
+(when (modulep! :ui hl-todo) (load! "config/hl-todo"))
+(when (modulep! :emacs undo +tree) (load! "config/undo"))
 
 (load! "config/bindings")
