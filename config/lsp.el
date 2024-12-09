@@ -3,6 +3,7 @@
 
 (after! lsp-mode
   (setq-default lsp-lens-enable nil)
+  (setq-default lsp-inlay-hint-enable t)
   (setq-default lsp-ui-doc-show-with-cursor t))
 
 (after! company
