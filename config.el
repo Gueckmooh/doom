@@ -126,6 +126,7 @@
 
 
 (setq-default doom-modeline-buffer-file-name-style 'truncate-with-project)
+(setq-default fill-column 100)
 
 (add-hook! prog-mode #'visual-line-mode)
 (when (modulep! :lang cc) (load! "lang/cc"))
@@ -133,4 +134,10 @@
 (when (modulep! :ui hl-todo) (load! "config/hl-todo"))
 (when (modulep! :emacs undo +tree) (load! "config/undo"))
 
+(setq-hook! 'go-mode-hook +format-with 'goimports)
+
 (load! "config/bindings")
+
+(add-hook! psreplay-list-mode #'ansi-color-for-comint-mode-on)
+
+(setq-default apheleia-formatters-respect-indent-level nil)

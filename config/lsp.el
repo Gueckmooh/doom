@@ -4,7 +4,9 @@
 (after! lsp-mode
   (setq-default lsp-lens-enable nil)
   (setq-default lsp-inlay-hint-enable t)
-  (setq-default lsp-ui-doc-show-with-cursor t))
+  (setq-default lsp-headerline-breadcrumb-enable t)
+  ;; (setq lsp-use-plists "true")
+  (setq-default lsp-ui-doc-show-with-cursor nil))
 
 (after! company
   (map! :gei "M-i" #'company-complete-common)

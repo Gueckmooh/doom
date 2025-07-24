@@ -10,9 +10,9 @@
 (add-to-list 'auto-mode-alist '("\\.inl\\'" . c++-mode))
 
 (after! projectile
-        (add-to-list 'projectile-other-file-alist '("cpp" . ("h" "hpp" "ipp" "inl")))
-        (add-to-list 'projectile-other-file-alist '("hpp" . ("h" "ipp" "cpp" "cc" "inl")))
-        (add-to-list 'projectile-other-file-alist '("inl" . ("h" "hpp" "cpp"))))
+  (add-to-list 'projectile-other-file-alist '("cpp" . ("h" "hpp" "ipp" "inl")))
+  (add-to-list 'projectile-other-file-alist '("hpp" . ("h" "ipp" "cpp" "cc" "inl")))
+  (add-to-list 'projectile-other-file-alist '("inl" . ("h" "hpp" "cpp"))))
 
 
 ;; =============================================================================
@@ -23,7 +23,7 @@
 (defun define-my-c-style ()
   "Declare my c style."
   (c-add-style "my-c-style"
-             '((c-basic-offset . 4)
+               '((c-basic-offset . 4)
                (c-offsets-alist
                 (access-label . /)
                 (arglist-cont . 0)
@@ -108,3 +108,5 @@
 
 (add-hook 'c-mode-hook #'set-my-c-style)
 (add-hook 'c++-mode-hook #'set-my-c-style)
+
+;; (use-package! highlight-doxygen)
