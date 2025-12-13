@@ -182,7 +182,7 @@
        yaml                ; JSON, but readable
        ;;zig               ; C, but simpler
        souffle
-       renpy
+       ;;renpy
        bison
 
        :email
