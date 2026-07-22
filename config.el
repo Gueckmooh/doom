@@ -141,3 +141,7 @@
 (add-hook! psreplay-list-mode #'ansi-color-for-comint-mode-on)
 
 (setq-default apheleia-formatters-respect-indent-level nil)
+
+(add-to-list
+ 'apheleia-inhibit-functions
+ (lambda () (string-suffix-p ".in" (buffer-file-name))))
