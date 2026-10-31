@@ -5,7 +5,6 @@
   :config
   (set-face-background 'highlight-doxygen-comment nil))
 
-(add-hook! c++-mode #'highlight-doxygen-mode)
-(add-hook! c-mode #'highlight-doxygen-mode)
+(add-hook! (c-mode c++-mode c-ts-base-mode) #'highlight-doxygen-mode)
 (when (modulep! :lang souffle)
   (add-hook! souffle-mode #'highlight-doxygen-mode))
