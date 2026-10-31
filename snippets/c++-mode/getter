@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: getter
+# key: getter
+# --
+${1} ${2}() const noexcept {
+    return m_${2};
+}

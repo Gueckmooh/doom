@@ -1,0 +1,6 @@
+# key: setter
+# name: setter
+# --
+void set${1}(${2} _${1}) noexcept {
+    m_${1} = std::move(_${1});
+}
