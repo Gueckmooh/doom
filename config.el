@@ -119,10 +119,8 @@
 ;; Draw block cursor as wide as the glyph under it
 (setq-default x-stretch-cursor t)
 
-;; Show unncessary whitespace that can mess up your diff
-(add-hook! 'prog-mode-hook
-  (lambda ()
-    (setq-default show-trailing-whitespace 1)))
+;; Show unnecessary whitespace that can mess up your diff
+(setq-hook! 'prog-mode-hook show-trailing-whitespace t)
 
 
 (setq-default doom-modeline-buffer-file-name-style 'truncate-with-project)
