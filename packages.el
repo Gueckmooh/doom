@@ -50,3 +50,4 @@
 ;;(unpin! t)
 
 (package! highlight-doxygen)
+(package! catppuccin-theme :recipe (:host github :repo "catppuccin/emacs")) 
