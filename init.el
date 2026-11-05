@@ -113,6 +113,7 @@
        perforce
        meson
        doxygen
+       claude
 
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
