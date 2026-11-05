@@ -7,7 +7,25 @@
   (setq claude-code-ide-terminal-backend 'ghostel)
   ;; The xref apropos MCP tool calls `apropos-parse-pattern' without loading apropos
   (require 'apropos)
-  (claude-code-ide-emacs-tools-setup))
+  (claude-code-ide-emacs-tools-setup)
+  (claude-code-ide-make-tool
+   :function #'+claude-show-code
+   :name "show_code"
+   :description "Show a range of a file to the user in Emacs, highlighted, and move \
+the user's focus to it.  Use it to point at code while explaining it.  The highlight \
+stays until the next call, the first edit of that buffer, or escape in that buffer."
+   :args '((:name "file_path" :type string
+            :description "Path of the file, absolute or relative to the project root")
+           (:name "start_line" :type integer
+            :description "First line of the range (1-based)")
+           (:name "end_line" :type integer :optional t
+            :description "Last line of the range (1-based); defaults to start_line")
+           (:name "start_column" :type integer :optional t
+            :description "Column where the range starts on start_line (0-based); \
+defaults to the start of the line")
+           (:name "end_column" :type integer :optional t
+            :description "Column where the range ends on end_line (0-based, \
+exclusive); defaults to the end of the line, the whole line being highlighted"))))
 
 ;; Bind in Doom's own "open" prefix map: `:config default' loads after this
 ;; module and rebinds SPC o to `doom-leader-open-map', which would drop a key
