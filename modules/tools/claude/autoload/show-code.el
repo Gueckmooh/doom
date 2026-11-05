@@ -108,4 +108,6 @@ the top.  Return a short confirmation for Claude Code."
         (let ((height (window-body-height window))
               (count (1+ (- end-line start-line))))
           (recenter (if (<= count height) (/ (- height count) 2) 2))))
-      (format "Showing %s:%d-%d" file start-line end-line))))
+      (if (= start-line end-line)
+          (format "Showing %s:%d" file start-line)
+        (format "Showing %s:%d-%d" file start-line end-line)))))
